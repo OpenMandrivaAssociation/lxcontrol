@@ -1,9 +1,9 @@
 Summary:	Lexmark printer management commands
 Name:		lxcontrol
 Version:	1.3 
-Release:	%mkrel 1
+Release:	%mkrel 2
 License:	GPL
-Group:		System/Configuration/Printing
+Group:		System/Printing
 Source:		http://www.powerup.com.au/~pbwest/lexmark/lexmark.html/lxcontrol.tar.bz2
 Source1:	http://209.233.17.85/lexmark/lm1100maint.tar.bz2
 Source2:	http://bimbo.fjfi.cvut.cz/~paluch/l7kdriver/changecartridge
