@@ -1,7 +1,7 @@
 Summary:	Lexmark printer management commands
 Name:		lxcontrol
 Version:	1.3 
-Release:	%mkrel 2
+Release:	%mkrel 3
 License:	GPL
 Group:		System/Printing
 Source:		http://www.powerup.com.au/~pbwest/lexmark/lexmark.html/lxcontrol.tar.bz2
@@ -12,8 +12,8 @@ Source4:	README.Lexmark-Maintenance
 Source5:	lx.control.sh
 Patch0:		lxcontrol-lx.control-cups.patch
 Requires:	cups
-Conflicts:	printer-utils-2006 printer-utils-2007
-Conflicts:	printer-filters-2006 printer-filters-2007
+Conflicts:	printer-utils = 2007
+Conflicts:	printer-filters = 2007
 BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
