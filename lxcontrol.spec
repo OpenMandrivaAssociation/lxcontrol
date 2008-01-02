@@ -14,6 +14,7 @@ Patch0:		lxcontrol-lx.control-cups.patch
 Requires:	cups
 Conflicts:	printer-utils = 2007
 Conflicts:	printer-filters = 2007
+BuildRoot:	%{_tmppath}/%{name}-%{version}-root
 
 %description
 Tools for show and hide catridges, and align and clean heads in a Lexmark
