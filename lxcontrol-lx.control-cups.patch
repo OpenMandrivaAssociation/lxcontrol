@@ -1,0 +1,11 @@
+--- lxcontrol/lx.control.ol	2004-03-01 09:15:02.633838664 -0300
++++ lxcontrol/lx.control	2004-03-01 09:15:19.035345256 -0300
+@@ -113,7 +113,7 @@
+ exit 1
+ fi
+ LPCLPD=/usr/sbin/lpc-lpd
+-LPCCUPS=/usr/sbin/lpc-cups
++LPCCUPS=/usr/sbin/lpc
+ AUXDIR=/usr/share/lxcontrol
+ SHOW=$AUXDIR/showcart.out
+ HIDE=$AUXDIR/hidecart.out
