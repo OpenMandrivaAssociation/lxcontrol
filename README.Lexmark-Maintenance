@@ -1,0 +1,27 @@
+
+Lexmark Printer Maintenance Tools
+---------------------------------
+
+Programs for maintanance of Lexmark inkjet printers: Moving out the print
+head to change the cartridges, adjusting the print heads, cleaning the
+nozzles ...
+
+showcartridges
+hidecartridges
+headalign
+headclean     - Command line programs for the Lexmark 5xxx and 7xxx
+
+changecartridge - Another command line tool for changing the
+                ink cartridges in the Lexmark 5xxx and 7xxx 
+
+lm1100change,
+lm1100back    - Command line tools for changing the cartridge in Lexmark
+                1xxx printers
+
+Since Lexmark will not release protocol specifications the authors had
+to dissassemble the byte codes sent by their Windows printer maintenance
+programs to create this.
+
+
+
+

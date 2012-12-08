@@ -1,0 +1,22 @@
+
+changecartridge - a program for changing the ink cartridges
+                  in the Lexmark 5xxx and 7xxx printers.
+
+(C) 1999 Henryk Paluch, paluch@bimbo.fjfi.cvut.cz
+
+To change the ink cartridges in a Lexmark printer you must move the
+print head out of its parking corner, so that you can reach the
+cartridges. Lexmark only provides a Windows program for doing this. To
+not need to boot Windows for changing the cartridges there is this
+script. Simply call it with:
+
+   changecartridge
+
+on the command line and follow the steps described on the screen.
+The printer is assumed to be at the parallel port #1 (/dev/lp0), but
+this setting can be changed by editing the definition of the PORT
+variable in /usr/bin/changecartridge.
+
+
+
+

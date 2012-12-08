@@ -1,0 +1,25 @@
+#!/bin/bash
+#
+# Sends escapes to Lexmark 5xxx, 7xxx to change cartridges
+# (C) 1999 Henryk Paluch, paluch@bimbo.fjfi.cvut.cz
+# $Id:$
+#
+PORT=/dev/lp0
+
+echo "Lexmark(R) JetPrinter(TM) 5xxx,7xxx cartridge changer"
+echo "Assuming printer on port $PORT"
+echo
+
+if [ ! -w $PORT ];then
+ echo "Missing write permissions to printer port $PORT"
+ exit 1
+fi
+
+echo "Press enter to load cartridge..."
+read tmp
+echo -ne '\245\000\005\100\340\012\035\160' > $PORT
+echo "Insert cartridge and press enter..."
+read tmp
+echo -ne '\245\000\005\100\340\012\001\000' > $PORT
+exit 0
+
