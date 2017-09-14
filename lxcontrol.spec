@@ -12,7 +12,9 @@ Source3:	README.changecartridge
 Source4:	README.Lexmark-Maintenance
 Source5:	lx.control.sh
 Patch0:		lxcontrol-lx.control-cups.patch
+BuildArch:	noarch
 Requires:	cups
+
 Conflicts:	printer-utils = 2007
 Conflicts:	printer-filters = 2007
 
