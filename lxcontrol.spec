@@ -56,7 +56,7 @@ install -dm 0755 %{buildroot}%{_datadir}/applications
 # Lexmark printer maintenance
 # Program and data files
 install -pm 0755 lx.control %{buildroot}%{_bindir}/
-install -pm 0755 %{_sourcedir}/lx.control.sh %{buildroot}%{_bindir}/
+install -pm 0755 %{SOURCE5} %{buildroot}%{_bindir}/
 install -pm 0755 lm1100maint/lm1100change %{buildroot}%{_bindir}/
 install -pm 0755 lm1100maint/lm1100back %{buildroot}%{_bindir}/
 install -pm 0755 changecartridge %{buildroot}%{_bindir}/
