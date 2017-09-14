@@ -45,7 +45,7 @@ else
 		if [ -n "$DISPLAY" ]; then
 			xterm=$(which xterm 2> /dev/null)
 			if [ -n "$xterm" ]; then
-				xterm -c $0 xterm
+				xterm $0
 				exit 1
 			fi
 		fi
@@ -110,6 +110,11 @@ else
 	printers=$(echo $($LPC status | sort | sed -ne 's/\(.\+\):$/"\1" ""/p'))
 fi
 
+if [ -z $printers ]; then
+	msgbox 10 60 "No printers found."
+	exit 1
+fi
+
 # Show them to the user, and get the selected one
 printer=$(menu 'Please, select the printer:' $printers)
 [ "$?" -eq "1" ] && exit 1
@@ -124,3 +129,4 @@ else
 fi
 
 exit 0
+
