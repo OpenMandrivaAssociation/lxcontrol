@@ -36,9 +36,8 @@ printer. Used with Lexmark 5xxx, 7xxx and 11xx, possible with others.
 
 %prep
 
-%setup -q -n %{name}
+%autosetup -p1 -n %{name}
 %setup -q -n %{name} -a 1 -T -D
-%apply_patches
 
 cp %{SOURCE2} changecartridge
 mv README.Lexmark README.Lexmark5xxx_7xxx
