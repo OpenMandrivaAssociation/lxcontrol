@@ -1,9 +1,10 @@
 Summary:	Lexmark printer management commands
 Name:		lxcontrol
 Version:	1.3 
-Release:	%mkrel 10
+Release:	12
 License:	GPL
 Group:		System/Printing
+URL:		http://www.lxde.org/
 Source:		http://www.powerup.com.au/~pbwest/lexmark/lexmark.html/lxcontrol.tar.bz2
 Source1:	http://209.233.17.85/lexmark/lm1100maint.tar.bz2
 Source2:	http://bimbo.fjfi.cvut.cz/~paluch/l7kdriver/changecartridge
@@ -11,43 +12,55 @@ Source3:	README.changecartridge
 Source4:	README.Lexmark-Maintenance
 Source5:	lx.control.sh
 Patch0:		lxcontrol-lx.control-cups.patch
+BuildArch:	noarch
 Requires:	cups
+
 Conflicts:	printer-utils = 2007
 Conflicts:	printer-filters = 2007
-BuildRoot:	%{_tmppath}/%{name}-%{version}-root
+
 
 %description
 Tools for show and hide catridges, and align and clean heads in a Lexmark
 printer. Used with Lexmark 5xxx, 7xxx and 11xx, possible with others.
 
+
+%files
+%{_bindir}/*
+%{_datadir}/lm1100maint
+%{_datadir}/lxcontrol
+%{_datadir}/applications/*
+
+
+#----------------------------------------------------------------------
+
+
 %prep
 
-%setup -q -n %{name}
+%autosetup -p1 -n %{name}
 %setup -q -n %{name} -a 1 -T -D
+
 cp %{SOURCE2} changecartridge
 mv README.Lexmark README.Lexmark5xxx_7xxx
 mv lm1100maint/README README.Lexmark1xxx
 cp %{SOURCE3} .
 cp %{SOURCE4} .
-%patch0 -p1
 
 %build
+# nothing to do here
 
 %install
-rm -rf %{buildroot}
-
-install -d %{buildroot}%{_bindir}
-install -d %{buildroot}%{_datadir}/lxcontrol
-install -d %{buildroot}%{_datadir}/lm1100maint
-install -d %{buildroot}%{_datadir}/applications
+install -dm 0755 %{buildroot}%{_bindir}
+install -dm 0755 %{buildroot}%{_datadir}/lxcontrol
+install -dm 0755 %{buildroot}%{_datadir}/lm1100maint
+install -dm 0755 %{buildroot}%{_datadir}/applications
 
 # Lexmark printer maintenance
 # Program and data files
-install -m 755 lx.control %{buildroot}%{_bindir}/
-install -m 755 %{_sourcedir}/lx.control.sh %{buildroot}%{_bindir}/
-install -m 755 lm1100maint/lm1100change %{buildroot}%{_bindir}/
-install -m 755 lm1100maint/lm1100back %{buildroot}%{_bindir}/
-install -m 755 changecartridge %{buildroot}%{_bindir}/
+install -pm 0755 lx.control %{buildroot}%{_bindir}/
+install -pm 0755 %{SOURCE5} %{buildroot}%{_bindir}/
+install -pm 0755 lm1100maint/lm1100change %{buildroot}%{_bindir}/
+install -pm 0755 lm1100maint/lm1100back %{buildroot}%{_bindir}/
+install -pm 0755 changecartridge %{buildroot}%{_bindir}/
 cp -f *.out %{buildroot}%{_datadir}/lxcontrol/
 ( cd %{buildroot}%{_bindir}
   ln -s lx.control headclean
@@ -63,7 +76,7 @@ cp -f lm1100maint/lexmark* \
 	%{buildroot}%{_datadir}/lm1100maint/
 
 # XDG menu
-install -d %{buildroot}%{_datadir}/applications
+install -dm 0755 %{buildroot}%{_datadir}/applications
 
 cat > %{buildroot}%{_datadir}/applications/mandriva-headalign.desktop << EOF
 [Desktop Entry]
@@ -108,27 +121,6 @@ Terminal=false
 Type=Application
 Categories=X-MandrivaLinux-System-Configuration-Printing;
 EOF
-
-%if %mdkversion < 200900
-%post
-%update_menus
-%endif
-
-%if %mdkversion < 200900
-%postun
-%clean_menus
-%endif
-
-%clean
-rm -rf %{buildroot}
-
-%files
-%defattr(0644,root,root,0755)
-%attr(0755,root,root) %{_bindir}/*
-%{_datadir}/lm1100maint
-%{_datadir}/lxcontrol
-%{_datadir}/applications/*
-
 
 %changelog
 * Wed May 04 2011 Oden Eriksson <oeriksson@mandriva.com> 1.3-10mdv2011.0
