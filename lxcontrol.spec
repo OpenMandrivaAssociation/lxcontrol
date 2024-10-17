@@ -4,7 +4,7 @@ Version:	1.3
 Release:	12
 License:	GPL
 Group:		System/Printing
-URL:		http://www.lxde.org/
+URL:		https://www.lxde.org/
 Source:		http://www.powerup.com.au/~pbwest/lexmark/lexmark.html/lxcontrol.tar.bz2
 Source1:	http://209.233.17.85/lexmark/lm1100maint.tar.bz2
 Source2:	http://bimbo.fjfi.cvut.cz/~paluch/l7kdriver/changecartridge
